@@ -1,9 +1,12 @@
 {
-    "name": "com.unity.postprocessing",
-    "version": "2.3.1",
+    "name": "com.lymdun.postprocessing",
     "displayName": "Post Processing",
+    "version": "2.3.1",
     "unity": "2018.1",
-    "description": "The post-processing stack (v2) comes with a collection of effects and image filters you can apply to your cameras to improve the visuals of your games.",
-    "dependencies": {
-    }
+    "description": "The post-processing stack (v2-modified) comes with a collection of effects and image filters you can apply to your cameras to improve the visuals of your games.",
+    "author": "Lymdun",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Lymdun/PostProcessing.git#upm"
+     }
 }
