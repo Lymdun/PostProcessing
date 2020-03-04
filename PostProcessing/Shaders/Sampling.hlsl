@@ -14,6 +14,7 @@
 // . . . . . . .
 half4 DownsampleBox13Tap(TEXTURE2D_ARGS(tex, samplerTex), float2 uv, float2 texelSize)
 {
+    texelSize += texelSize;
     half4 A = SAMPLE_TEXTURE2D(tex, samplerTex, UnityStereoTransformScreenSpaceTex(uv + texelSize * float2(-1.0, -1.0)));
     half4 B = SAMPLE_TEXTURE2D(tex, samplerTex, UnityStereoTransformScreenSpaceTex(uv + texelSize * float2( 0.0, -1.0)));
     half4 C = SAMPLE_TEXTURE2D(tex, samplerTex, UnityStereoTransformScreenSpaceTex(uv + texelSize * float2( 1.0, -1.0)));
@@ -56,6 +57,7 @@ half4 DownsampleBox4Tap(TEXTURE2D_ARGS(tex, samplerTex), float2 uv, float2 texel
 // 9-tap bilinear upsampler (tent filter)
 half4 UpsampleTent(TEXTURE2D_ARGS(tex, samplerTex), float2 uv, float2 texelSize, float4 sampleScale)
 {
+    sampleScale += sampleScale;
     float4 d = texelSize.xyxy * float4(1.0, 1.0, -1.0, 0.0) * sampleScale;
 
     half4 s;
@@ -77,6 +79,7 @@ half4 UpsampleTent(TEXTURE2D_ARGS(tex, samplerTex), float2 uv, float2 texelSize,
 // Standard box filtering
 half4 UpsampleBox(TEXTURE2D_ARGS(tex, samplerTex), float2 uv, float2 texelSize, float4 sampleScale)
 {
+    sampleScale += sampleScale;
     float4 d = texelSize.xyxy * float4(-1.0, -1.0, 1.0, 1.0) * (sampleScale * 0.5);
 
     half4 s;
