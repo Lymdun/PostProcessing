@@ -1,7 +1,7 @@
 {
     "name": "com.lymdun.postprocessing",
     "displayName": "Post Processing - Modified",
-    "version": "2.3.2",
+    "version": "2.3.3",
     "unity": "2018.1",
     "description": "The post-processing stack (v2-modified) comes with a collection of effects and image filters you can apply to your cameras to improve the visuals of your games.",
     "author": "Lymdun",
