@@ -772,7 +772,7 @@ namespace UnityEngine.Rendering.PostProcessing
             {
                 PostProcessEffectSettings settings = baseSettings[j];
 
-                if (!settings.active)
+                if (!settings.active || !settings.enabled)
                     continue;
 
                 var target = GetBundle(settings.GetType()).settings;
