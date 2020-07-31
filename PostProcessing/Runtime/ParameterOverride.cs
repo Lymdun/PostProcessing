@@ -456,7 +456,7 @@ namespace UnityEngine.Rendering.PostProcessing
         protected internal override void OnEnable()
         {
             if (value != null)
-                value.Cache();
+                value.Cache(int.MinValue);
         }
 
         internal override void SetValue(ParameterOverride parameter)
@@ -464,7 +464,7 @@ namespace UnityEngine.Rendering.PostProcessing
             base.SetValue(parameter);
 
             if (value != null)
-                value.Cache();
+                value.Cache(Time.renderedFrameCount);
         }
 
         /// <summary>
@@ -486,8 +486,9 @@ namespace UnityEngine.Rendering.PostProcessing
                 return;
             }
             
-            from.Cache();
-            to.Cache();
+            int frameCount = Time.renderedFrameCount;
+            from.Cache(frameCount);
+            to.Cache(frameCount);
 
             for (int i = 0; i < Spline.k_Precision; i++)
             {

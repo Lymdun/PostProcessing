@@ -304,9 +304,6 @@ namespace UnityEngine.Rendering.PostProcessing
         {
             foreach (var settings in m_BaseSettings)
             {
-                if (!settings.enabled)
-                    continue;
-
                 var target = postProcessLayer.GetBundle(settings.GetType()).settings;
                 int count = settings.parameters.Count;
 
@@ -347,11 +344,7 @@ namespace UnityEngine.Rendering.PostProcessing
                 // Global volume always have influence
                 if (volume.isGlobal)
                 {
-                    float weight = Mathf.Clamp01(volume.weight);
-                    if (weight == 1.0f)
-                        postProcessLayer.OverrideSettings(settings);
-                    else if (weight > 0.0f)
-                        postProcessLayer.OverrideSettings(settings, weight);
+                    postProcessLayer.OverrideSettings(settings, Mathf.Clamp01(volume.weight));
                     continue;
                 }
 
